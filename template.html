@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Videoboard</title>
+
+    <style>
+      body {
+        font-family: sans-serif;
+      }
+
+      .videobox {
+        border: 2px solid black;
+        float: left;
+        border-radius: 5px;
+        margin-left: 10px;
+        margin-top: 10px;
+        padding-top: 1em;
+        padding-bottom: 1em;
+        width: 18em;
+        text-align: center;
+      }
+
+      .videobox img {
+        background-color: black;
+        width: 16em; /* Occupy a definded 16 by 9 space... */
+        height: 9em;
+        object-fit: contain; /* ... without stretching the image */
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      function play(videoid) {
+        var xhttp = new XMLHttpRequest();
+        xhttp.open("GET", "/play/" + videoid, true);
+        xhttp.send();
+      }
+    </script>
+
+    <!--split-->
+    <div class="videobox">
+        <a href="javascript:play(%videoid%)">
+          <img src="/img/%videoid%.png">
+        </a><br>
+      %videotitle%
+    </div>
+    <!--split-->
+  </body>
+</html>

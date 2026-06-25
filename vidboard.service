@@ -1,0 +1,13 @@
+[Unit]
+Description=A sound board, but with videos
+After=graphical-session.target
+PartOf=graphical-session.target
+
+[Service]
+WorkingDirectory=%h/vidboard/
+# -u uses unbuffered output, so journalctl shows all errors (print).
+ExecStart=python -u vidboard.py
+Restart=always
+
+[Install]
+WantedBy=graphical-session.target
